@@ -8,31 +8,9 @@ module.exports =
     'verbose': true,
     'testURL': 'http://localhost/',
     'testEnvironment': 'jsdom',
-    'collectCoverage': false,
-    'collectCoverageFrom': [
-      '<rootDir>/src/**/*.{js}',
-      '<rootDir>/src/**/*.{vue}'
-    ],
-    'coverageDirectory': '<rootDir>/test/coverage',
-    'coverageThreshold': {
-      'global': {
-        'branches': 50,
-        'functions': 50,
-        'lines': 50,
-        'statements': 50
-      },
-      './src/components/': {
-        'branches': 40,
-        'statements': 40
-      },
-      './src/common/': {
-        'branches': 40,
-        'statements': 40
-      }
-    },
     'testMatch': [
-      '<rootDir>/test/**/?(*.)(spec).js?(x)',
-      '<rootDir>/test/**/?(*.)(test).js?(x)'
+      '**/?(*.)(spec).js?(x)',
+      '**/?(*.)(test).js?(x)'
     ],
     'testPathIgnorePatterns': [
       '<rootDir>/components/coverage/',
@@ -47,6 +25,8 @@ module.exports =
     ],
     'moduleNameMapper': {
       "@components(.*)$": "<rootDir>/src/components$1",
+      'src/([^\\.]*)$': '<rootDir>/src/$1.js',
+      'src/([^\\.]*).vue$': '<rootDir>/src/$1.vue',
       '^vue$': 'vue/dist/vue.common.js',
       'quasar': 'quasar-framework/dist/umd/quasar.mat.umd.min.js'
     },
